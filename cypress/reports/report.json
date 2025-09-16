@@ -1,0 +1,157 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 0,
+    "pending": 0,
+    "failures": 3,
+    "start": "2025-09-16T05:47:11.279Z",
+    "end": "2025-09-16T05:49:43.805Z",
+    "duration": 152526,
+    "testsRegistered": 3,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "744db49f-7a13-4ca8-bbcc-36c06c053fa8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Test\\AI Agent Feature.cy.js",
+      "file": "cypress\\e2e\\Test\\AI Agent Feature.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "da255cea-822a-4298-99ca-3456e8093320",
+          "title": "Basic Chat Functionality:",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Task # 1 : Should load AI page and verify chat UI elements",
+              "fullTitle": "Basic Chat Functionality: Task # 1 : Should load AI page and verify chat UI elements",
+              "timedOut": null,
+              "duration": 47122,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress\\\\e2e\\\\Test\\\\AI Agent Feature.cy.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"\\\\AI Agent Feature.cy.js\\\\Basic Chat Functionality -- Task # 1  Should load AI page and verify chat UI elements (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "// ✅ Verify side menu is visible\ncy.wait(800); // Waits for 2 seconds\ncy.get('#onetrust-accept-btn-handler').click({\n  force: true\n}); //cookie\ncy.get('button[class=\"inline-flex items-center justify-around whitespace-nowrap rounded-md disabled:pointer-events-none w-fit dark:text-white bg-gray-50 hover:bg-gray-100 dark:bg-primary-900 dark:hover:bg-gray-900 hover:shadow-sm disabled:bg-gray-100 disabled:text-gray-300 h-12 px-md py-sm text-md-semibold gap-xs rounded-md w-full\"]').click();\ncy.login(_LoginData.default.email, _LoginData.default.password);\ncy.wait(20000); // Waits for 2 seconds\n//    cy.get('.flex.w-full.items-center.gap-xs', { timeout: 10000 }).should('be.visible');\ncy.get(selectors.chatbox, {\n  timeout: 800\n}).should('be.visible');\ncy.wait(2000);\ncy.get(selectors.searchicon, {\n  timeout: 800\n}).should('be.visible'); //search icon\n//cy.get('.display-xs-semibold.capitalize').should('be.visible'); //AI displayed\ncy.get(selectors.notificationicon, {\n  timeout: 800\n}).should('be.visible'); //Notification icon displayed\ncy.get(selectors.wallet, {\n  timeout: 800\n}).should('be.visible'); // Walletr icon displayed\ncy.get(selectors.logo, {\n  timeout: 2000\n}).should('be.visible'); // icon\ncy.get(selectors.profile, {\n  timeout: 2000\n}).should('be.visible'); //profile button\ncy.get(selectors.title, {\n  timeout: 2000\n}).should('be.visible'); // title displayed\ncy.get(selectors.subtitle, {\n  timeout: 2000\n}).should('be.visible'); //sub title displayed\n//cy.get(selectors.welcome, { timeout: 2000 }).should('be.visible'); // Wellcome message displayed\n//cy.get(selectors.time, { timeout: 2000 }).should('be.visible'); // timing displayed\ncy.get(selectors.walleticon, {\n  timeout: 1000\n}).should('be.visible'); // Walletr icon displayed\ncy.get(selectors.msg, {\n  timeout: 2000\n}).should('be.visible'); // message displayed\ncy.get(selectors.msginputbox, {\n  timeout: 2000\n}).should('be.visible'); // message input box displayed\ncy.get(selectors.sendbtt, {\n  timeout: 2000\n}).should('be.visible').and('be.disabled'); // msg sending button displayed\ncy.get(selectors.footer, {\n  timeout: 2000\n}).should('be.visible'); // footer displayed\ncy.get(selectors.menuicon, {\n  timeout: 2000\n}).should('be.visible'); // Menu icon displayed\ncy.wait(1000); // Waits for 2 seconds\ncy.logout();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 800ms: Expected to find element: `img[alt=\"search\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 800ms: Expected to find element: `img[alt=\"search\"]`, but never found it.\n    at Context.eval (webpack://permission-agent-cypress-automation-test/./cypress/e2e/Test/AI Agent Feature.cy.js:71:50)",
+                "diff": null
+              },
+              "uuid": "26682e2e-1252-4f32-9989-2dd83f12990b",
+              "parentUUID": "da255cea-822a-4298-99ca-3456e8093320",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Task # 2: Input field and send button are functional",
+              "fullTitle": "Basic Chat Functionality: Task # 2: Input field and send button are functional",
+              "timedOut": null,
+              "duration": 48996,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress\\\\e2e\\\\Test\\\\AI Agent Feature.cy.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"\\\\AI Agent Feature.cy.js\\\\Basic Chat Functionality -- Task # 2 Input field and send button are functional (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "// ✅ Verify side menu is visible\ncy.wait(800); // Waits for 2 seconds\ncy.get('#onetrust-accept-btn-handler').click({\n  force: true\n});\ncy.get('button[class=\"inline-flex items-center justify-around whitespace-nowrap rounded-md disabled:pointer-events-none w-fit dark:text-white bg-gray-50 hover:bg-gray-100 dark:bg-primary-900 dark:hover:bg-gray-900 hover:shadow-sm disabled:bg-gray-100 disabled:text-gray-300 h-12 px-md py-sm text-md-semibold gap-xs rounded-md w-full\"]').click();\ncy.login(_LoginData.default.email, _LoginData.default.password);\ncy.wait(30000); // Waits for 2 seconds\ncy.get(selectors.msginputbox, {\n  timeout: 1000\n}).type(\"How your data is protected?\"); // message input box displayed\ncy.get(selectors.sendbtt, {\n  timeout: 1000\n}).click(); // msg sending button displayed\ncy.wait(10000);\ncy.get(selectors.sendtext).should('have.text', 'How your data is protected?');\ncy.wait(10000);\ncy.get(selectors.reply).should('be.visible').and('not.be.empty');\ncy.wait(10000); // Waits for 2 seconds\ncy.logout();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 1000ms: Expected to find element: `input[placeholder=\"Type your message...\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 1000ms: Expected to find element: `input[placeholder=\"Type your message...\"]`, but never found it.\n    at Context.eval (webpack://permission-agent-cypress-automation-test/./cypress/e2e/Test/AI Agent Feature.cy.js:114:3)",
+                "diff": null
+              },
+              "uuid": "10257ae0-a7fd-4244-9de0-20944832117d",
+              "parentUUID": "da255cea-822a-4298-99ca-3456e8093320",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Task 3 : Placeholder text and UI elements render properly",
+              "fullTitle": "Basic Chat Functionality: Task 3 : Placeholder text and UI elements render properly",
+              "timedOut": null,
+              "duration": 50765,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress\\\\e2e\\\\Test\\\\AI Agent Feature.cy.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"\\\\AI Agent Feature.cy.js\\\\Basic Chat Functionality -- Task 3  Placeholder text and UI elements render properly (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "// ✅ Verify side menu is visible\ncy.wait(800); // Waits for 2 seconds\ncy.get('#onetrust-accept-btn-handler').click({\n  force: true\n});\ncy.get('button[class=\"inline-flex items-center justify-around whitespace-nowrap rounded-md disabled:pointer-events-none w-fit dark:text-white bg-gray-50 hover:bg-gray-100 dark:bg-primary-900 dark:hover:bg-gray-900 hover:shadow-sm disabled:bg-gray-100 disabled:text-gray-300 h-12 px-md py-sm text-md-semibold gap-xs rounded-md w-full\"]').click();\ncy.login(_LoginData.default.email, _LoginData.default.password);\ncy.wait(30000); // Waits for 2 seconds\ncy.get(selectors.sendbtt, {\n  timeout: 2000\n}).should('be.visible').should('be.disabled'); //check send button before typing message\ncy.get(selectors.msginputbox, {\n  timeout: 1000\n}).should('be.visible') //inout box check place holder\n.and('have.attr', 'placeholder', 'Type your message...').type(\"Enter\");\ncy.get(selectors.sendbtt, {\n  timeout: 2000\n}).should('be.visible').should('be.enabled'); // check button after typing test in inout box\ncy.wait(10000); // Waits for 2 seconds\ncy.logout();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 2000ms: Expected to find element: `body > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > button:nth-child(1)`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 2000ms: Expected to find element: `body > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > button:nth-child(1)`, but never found it.\n    at Context.eval (webpack://permission-agent-cypress-automation-test/./cypress/e2e/Test/AI Agent Feature.cy.js:142:45)",
+                "diff": null
+              },
+              "uuid": "757116a4-6e62-40f8-aeb9-5a4d88030a68",
+              "parentUUID": "da255cea-822a-4298-99ca-3456e8093320",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "26682e2e-1252-4f32-9989-2dd83f12990b",
+            "10257ae0-a7fd-4244-9de0-20944832117d",
+            "757116a4-6e62-40f8-aeb9-5a4d88030a68"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 146883,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "reportFilename": "report",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}

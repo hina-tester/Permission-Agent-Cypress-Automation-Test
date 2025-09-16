@@ -1,0 +1,155 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 0,
+    "pending": 0,
+    "failures": 3,
+    "start": "2025-09-16T04:56:38.114Z",
+    "end": "2025-09-16T04:58:17.399Z",
+    "duration": 99285,
+    "testsRegistered": 3,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2bbb0834-54b1-4e99-b242-bc063a0732bc",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Test\\Login Feature.cy.js",
+      "file": "cypress\\e2e\\Test\\Login Feature.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a820ecf9-fa76-4117-9d7b-6afbebb1dd44",
+          "title": "Login Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validate a successful login with valid credentials.",
+              "fullTitle": "Login Page Validate a successful login with valid credentials.",
+              "timedOut": null,
+              "duration": 35367,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\Login Feature.cy.js\\\\Login Page -- Validate a successful login with valid credentials (failed).png\"\n    ]\n  ]\n}",
+              "code": "// Wait for the cookie consent banner to become visible and click it\n// Using a smart wait with .should('be.visible') is better than a hard wait\ncy.wait(800); // Waits for 2 seconds\ncy.get('#onetrust-accept-btn-handler').click({\n  force: true\n});\nconst initialPageObj = new _initialPage.default();\ninitialPageObj.clickLoginLink(); //clicking Login button from Base URL\n// Use cy.origin() to perform all subsequent actions on the new domain.\n// The email and password data are passed as arguments to the new context.\ncy.origin('https://ask.permission.io',\n//open 2nd url\n{\n  args: {\n    email: _LoginData.default.email,\n    password: _LoginData.default.password\n  }\n}, ({\n  email,\n  password\n}) => {\n  Cypress.on('uncaught:exception', (err, runnable) => {\n    // returning false here prevents Cypress\n    // inside the cy.origin() method from failing the test\n    return false;\n  });\n  cy.get('input[type=\"email\"]').type(email, {\n    force: true\n  }); // replace with correct selector\n  cy.get('input[type=\"password\"]').type(password, {\n    force: true\n  }); // replace with correct selector\n  cy.get('button[type=\"submit\"]').click(); // replace with correct selector\n  cy.wait(2000); // Waits for 2 seconds\n  // After successful login, verify that the profile dropdown is visible\n  cy.get('.flex.w-full.items-center.gap-xs', {\n    timeout: 10000\n  }).should('be.visible');\n  // Click the profile dropdown button to reveal the user menu Logout\n  cy.get('.bg-gray-100.w-full.rounded-sm.px-xxs', {\n    timeout: 800\n  }).click({\n    multiple: true\n  }, {\n    force: true\n  });\n  // Find the 'Logout' menu item and click it\n  cy.get('div[role=\"menuitem\"]', {\n    timeout: 1000\n  }).click({\n    force: true\n  });\n  cy.wait(20000);\n  // Assert that the page has redirected back to the login page after logging out\n  cy.get('button.bg-gray-50.px-md.py-sm', {\n    timeout: 800\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `.flex.w-full.items-center.gap-xs`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `.flex.w-full.items-center.gap-xs`, but never found it.\n    at Object.proxyGetter [as get] (https://www.permission.io/__cypress/runner/cypress_runner.js:80410:22)\n    at exists (https://www.permission.io/__cypress/runner/cypress_runner.js:146526:26)\n    at elExists (https://www.permission.io/__cypress/runner/cypress_runner.js:146541:10)\n    at ensureExistence (https://www.permission.io/__cypress/runner/cypress_runner.js:146722:22)\n    at onFailFn (https://www.permission.io/__cypress/runner/cypress_runner.js:146751:53)",
+                "diff": null
+              },
+              "uuid": "a52d5dbc-ab50-4094-9312-929dfaea328c",
+              "parentUUID": "a820ecf9-fa76-4117-9d7b-6afbebb1dd44",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test login failure with incorrect credentials",
+              "fullTitle": "Login Page Test login failure with incorrect credentials",
+              "timedOut": null,
+              "duration": 24168,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\Login Feature.cy.js\\\\Login Page -- Test login failure with incorrect credentials (failed).png\"\n    ]\n  ]\n}",
+              "code": "// Wait for the cookie consent banner to become visible and click it\n// Using a smart wait with .should('be.visible') is better than a hard wait\ncy.wait(800); // Waits for 2 seconds\ncy.get('#onetrust-accept-btn-handler').click({\n  force: true\n});\nconst initialPageObj = new _initialPage.default();\ninitialPageObj.clickLoginLink(); //clicking Login button from Base URL\n// Use cy.origin() to perform all subsequent actions on the new domain.\n// The email and password data are passed as arguments to the new context.\ncy.origin('https://ask.permission.io',\n//open 2nd url\n{\n  args: {\n    email: _LoginData.default.Invalidemail,\n    password: _LoginData.default.Invalidpassword\n  }\n}, ({\n  email,\n  password\n}) => {\n  Cypress.on('uncaught:exception', (err, runnable) => {\n    // returning false here prevents Cypress\n    // inside the cy.origin() method from failing the test\n    return false;\n  });\n  cy.get('input[type=\"email\"]').type(email, {\n    force: true\n  }); // replace with correct selector\n  cy.get('input[type=\"password\"]').type(password, {\n    force: true\n  }); // replace with correct selector\n  cy.get('button[type=\"submit\"]').click(); // replace with correct selector\n  cy.wait(2000); // Waits for 2 seconds\n  // Validate error popup\n  cy.contains('div[data-title]', 'Invalid Credentials', {\n    timeout: 10000\n  }).should('be.visible');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Invalid Credentials' within the selector: 'div[data-title]' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Invalid Credentials' within the selector: 'div[data-title]' but never did.\n    at Context.eval (webpack://permission-agent-cypress-automation-test/./cypress/e2e/Test/Login Feature.cy.js:104:9)",
+                "diff": null
+              },
+              "uuid": "a7359b8c-9d8d-4858-9e3a-a2a0055f9e0f",
+              "parentUUID": "a820ecf9-fa76-4117-9d7b-6afbebb1dd44",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should lock account after multiple failed login attempts",
+              "fullTitle": "Login Page should lock account after multiple failed login attempts",
+              "timedOut": null,
+              "duration": 33607,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\Login Feature.cy.js\\\\Login Page -- should lock account after multiple failed login attempts (failed).png\"\n    ]\n  ]\n}",
+              "code": "// Wait for the cookie consent banner to become visible and click it\n// Using a smart wait with .should('be.visible') is better than a hard wait\ncy.wait(800); // Waits for 2 seconds\ncy.get('#onetrust-accept-btn-handler').click({\n  force: true\n});\nconst initialPageObj = new _initialPage.default();\ninitialPageObj.clickLoginLink(); //clicking Login button from Base URL\n// Use cy.origin() to perform all subsequent actions on the new domain.\n// The email and password data are passed as arguments to the new context.\ncy.origin('https://ask.permission.io',\n//open 2nd url\n{\n  args: {\n    email: _LoginData.default.ValidEmail,\n    password: _LoginData.default.Invalidpassword\n  }\n}, ({\n  email,\n  password\n}) => {\n  Cypress.on('uncaught:exception', (err, runnable) => {\n    // returning false here prevents Cypress\n    // inside the cy.origin() method from failing the test\n    return false;\n  });\n  for (let i = 0; i < 7; i++) {\n    cy.get('input[type=\"email\"]').clear().type(email, {\n      force: true\n    }); // replace with correct email\n    cy.get('input[type=\"password\"]').clear().type(password, {\n      force: true\n    }); // replace with incorrect pw\n    cy.get('button[type=\"submit\"]').click(); // replace with correct selector\n    cy.wait(2000); // Waits for 2 seconds\n    // Validate error popup\n    cy.contains('div[data-title]', 'Firebase: Error (auth/too-many-requests).', {\n      timeout: 10000\n    }).should('be.visible');\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Firebase: Error (auth/too-many-requests).' within the selector: 'div[data-title]' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Firebase: Error (auth/too-many-requests).' within the selector: 'div[data-title]' but never did.\n    at Object.proxyGetter [as get] (https://www.permission.io/__cypress/runner/cypress_runner.js:80410:22)\n    at exists (https://www.permission.io/__cypress/runner/cypress_runner.js:146526:26)\n    at elExists (https://www.permission.io/__cypress/runner/cypress_runner.js:146541:10)\n    at ensureExistence (https://www.permission.io/__cypress/runner/cypress_runner.js:146722:22)\n    at onFailFn (https://www.permission.io/__cypress/runner/cypress_runner.js:146751:53)",
+                "diff": null
+              },
+              "uuid": "0cb2a12d-3bca-4630-9e21-503d59cbde41",
+              "parentUUID": "a820ecf9-fa76-4117-9d7b-6afbebb1dd44",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "a52d5dbc-ab50-4094-9312-929dfaea328c",
+            "a7359b8c-9d8d-4858-9e3a-a2a0055f9e0f",
+            "0cb2a12d-3bca-4630-9e21-503d59cbde41"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 93142,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}

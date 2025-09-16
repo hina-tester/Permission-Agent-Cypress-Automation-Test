@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-09-16T05:49:51.073Z",
+    "end": "2025-09-16T05:50:41.772Z",
+    "duration": 50699,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "465a3ce6-934b-4232-99e2-d0b72a7cf2b6",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Test\\Chat Interaction Tests.cy.js",
+      "file": "cypress\\e2e\\Test\\Chat Interaction Tests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d6b46af1-468e-487c-b7e0-7560f65b46a5",
+          "title": "Message Handling:",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Task # 3 : Validate timestamps on messages",
+              "fullTitle": "Message Handling: Task # 3 : Validate timestamps on messages",
+              "timedOut": null,
+              "duration": 45531,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress\\\\e2e\\\\Test\\\\Chat Interaction Tests.cy.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"\\\\Chat Interaction Tests.cy.js\\\\Message Handling -- Task # 3  Validate timestamps on messages (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "// ✅ Verify side menu is visible\ncy.wait(800); // Waits for 2 seconds\ncy.get('#onetrust-accept-btn-handler').click({\n  force: true\n});\ncy.get('button[class=\"inline-flex items-center justify-around whitespace-nowrap rounded-md disabled:pointer-events-none w-fit dark:text-white bg-gray-50 hover:bg-gray-100 dark:bg-primary-900 dark:hover:bg-gray-900 hover:shadow-sm disabled:bg-gray-100 disabled:text-gray-300 h-12 px-md py-sm text-md-semibold gap-xs rounded-md w-full\"]').click();\ncy.login(_LoginData.default.email, _LoginData.default.password);\ncy.wait(20000); // Waits for 2 seconds\n// Send a message that is known to trigger an AI response with buttons\nconst triggerMessage = \"I am new here, tell me more about Permission.\";\ncy.get('input[placeholder=\"Type your message...\"]').type(triggerMessage);\ncy.get('button:has(svg.lucide-send)').click();\ncy.wait(10000);\n// Wait for the AI's response to appear\ncy.get('.flex.justify-start').should('have.length', 1);\n// Validate the AI's response and timestamp\ncy.get('.flex.justify-start .text-xs').eq(0).should('be.visible').invoke('text').should('match', /^(0?\\d|1[0-2]):[0-5]\\d\\s(AM|PM)$/);\ncy.wait(10000); // Waits for 2 seconds\ncy.logout();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[placeholder=\"Type your message...\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[placeholder=\"Type your message...\"]`, but never found it.\n    at Context.eval (webpack://permission-agent-cypress-automation-test/./cypress/e2e/Test/Chat Interaction Tests.cy.js:124:7)",
+                "diff": null
+              },
+              "uuid": "17a29745-5861-437e-80d0-794c8086d6d1",
+              "parentUUID": "d6b46af1-468e-487c-b7e0-7560f65b46a5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "17a29745-5861-437e-80d0-794c8086d6d1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 45531,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "reportFilename": "report",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}
