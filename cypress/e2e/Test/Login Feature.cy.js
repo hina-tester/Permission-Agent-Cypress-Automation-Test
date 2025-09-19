@@ -165,11 +165,11 @@ describe('Login Page', () => {
             cy.get('button[type="submit"]').click(); // replace with correct selector
 
             cy.wait(2000); // Waits for 2 seconds
-
+            }
             // Validate error popup
             cy.contains('div[data-title]', 'Firebase: Error (auth/too-many-requests).', { timeout: 10000 })
            .should('be.visible')
-            }
+            
 
 
          })
